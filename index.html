@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senzo - Web & Mobile Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0F172A;
+            color: #F1F5F9;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero-name {
+            font-size: 48px;
+            font-weight: 800;
+            color: #10B981;
+            margin-bottom: 8px;
+        }
+
+        .hero-title {
+            font-size: 24px;
+            color: #F1F5F9;
+            margin-bottom: 16px;
+        }
+
+        .hero-subtitle {
+            font-size: 16px;
+            color: #94A3B8;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #10B981;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #1E293B;
+            color: #F1F5F9;
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border: 1px solid #334155;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #334155;
+            transform: translateY(-2px);
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid #1E293B;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            text-align: center;
+            color: #10B981;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #94A3B8;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        /* ===== FEATURED PROJECT ===== */
+        .featured-card {
+            background: #1E293B;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .featured-card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #F1F5F9;
+        }
+
+        .featured-card p {
+            color: #94A3B8;
+            margin-bottom: 16px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: #334155;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #10B981;
+        }
+
+        .featured-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== SERVICES ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: #1E293B;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .service-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .service-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 8px;
+        }
+
+        .service-description {
+            font-size: 14px;
+            color: #94A3B8;
+        }
+
+        /* ===== EXPERIMENTS ===== */
+        .experiments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .experiment-card {
+            background: #1E293B;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .experiment-video {
+            width: 100%;
+            aspect-ratio: 9/16;
+            background: #0F172A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .experiment-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .experiment-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .experiment-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .experiment-description {
+            font-size: 14px;
+            color: #94A3B8;
+            margin-bottom: 12px;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background: #1E293B;
+            padding: 10px 20px;
+            border-radius: 24px;
+            font-size: 14px;
+            color: #10B981;
+            border: 1px solid #334155;
+        }
+
+        /* ===== HOW I WORK ===== */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            text-align: center;
+        }
+
+        .work-step {
+            background: #1E293B;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .work-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #10B981;
+            margin-bottom: 8px;
+        }
+
+        .work-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #64748B;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HERO -->
+        <section class="hero">
+            <h1 class="hero-name">Senzo</h1>
+            <h2 class="hero-title">I Build Apps, Websites & Digital Experiences</h2>
+            <p class="hero-subtitle">
+                I can take an idea and turn it into something people can actually use.
+            </p>
+            <div class="hero-buttons">
+                <a href="#trustlocal" class="btn-primary">View My Work</a>
+                <a href="#contact" class="btn-secondary">Get a Quote</a>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECT -->
+        <section class="section" id="trustlocal">
+            <h2 class="section-title">Featured Project</h2>
+            <div class="featured-card">
+                <h3>🏠 TrustLocal</h3>
+                <p>
+                    A complete mobile app connecting customers with trusted local service providers in South Africa.
+                    Built entirely with React Native, Expo, and Firebase.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">React Native</span>
+                    <span class="tech-tag">Expo</span>
+                    <span class="tech-tag">Firebase Auth</span>
+                    <span class="tech-tag">Firestore</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Cloudinary</span>
+                </div>
+                <div class="featured-buttons">
+                    <a href="https://github.com/Sesse001/TrustLocal" class="btn-primary">GitHub Repo</a>
+                    <a href="https://sesse001.github.io/TrustLocal-Web/" class="btn-secondary">Live Landing Page</a>
+                </div>
+            </div>
+            <p class="section-subtitle">
+                Features: Authentication, Booking System, Real-time Messaging, Admin Dashboard, Availability Scheduler, Error Tracking
+            </p>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="section" id="services">
+            <h2 class="section-title">What I Can Build</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3 class="service-title">Business Websites</h3>
+                    <p class="service-price">from R800</p>
+                    <p class="service-description">Mobile-friendly, professional websites for local businesses</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3 class="service-title">Mobile Apps</h3>
+                    <p class="service-price">from R2,000</p>
+                    <p class="service-description">React Native apps for Android with Firebase backend</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3 class="service-title">App Fixes & Improvements</h3>
+                    <p class="service-price">from R300</p>
+                    <p class="service-description">Bug fixes, feature additions, Firebase integration</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIMENTS -->
+        <section class="section" id="experiments">
+            <h2 class="section-title">Creative Development — Experiment Series</h2>
+            <p class="section-subtitle">
+                A personal exploration into using software development as a creative medium.
+                Both videos were created entirely programmatically with Remotion, React, and TypeScript.
+            </p>
+            <div class="experiments-grid">
+                <div class="experiment-card">
+                    <div class="experiment-video">
+                        <iframe src="https://www.youtube.com/embed/8HEIksmVGVg" title="Experiment #001" allowfullscreen></iframe>
+                    </div>
+                    <div class="experiment-info">
+                        <h3 class="experiment-title">🎬 Experiment #001</h3>
+                        <p class="experiment-description">
+                            "I Couldn't Edit a Video… So I Tried Something Different" — First complete video created entirely through code.
+                        </p>
+                        <a href="https://youtube.com/shorts/8HEIksmVGVg" class="btn-secondary">Watch Video</a>
+                    </div>
+                </div>
+                <div class="experiment-card">
+                    <div class="experiment-video">
+                        <iframe src="https://www.youtube.com/embed/bOboyFh-4L4" title="Experiment #002" allowfullscreen></iframe>
+                    </div>
+                    <div class="experiment-info">
+                        <h3 class="experiment-title">🎬 Experiment #002</h3>
+                        <p class="experiment-description">
+                            "I Built a Button That Knows What You'll Do…" — Advanced Remotion animation with futuristic visual effects.
+                        </p>
+                        <a href="https://youtube.com/shorts/bOboyFh-4L4" class="btn-secondary">Watch Video</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section" id="skills">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">React Native</span>
+                <span class="skill-tag">Expo</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Firebase</span>
+                <span class="skill-tag">Firestore</span>
+                <span class="skill-tag">Remotion</span>
+                <span class="skill-tag">Git/GitHub</span>
+                <span class="skill-tag">APK Building</span>
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">Deployment</span>
+            </div>
+        </section>
+
+        <!-- HOW I WORK -->
+        <section class="section" id="how-i-work">
+            <h2 class="section-title">How I Work</h2>
+            <div class="work-grid">
+                <div class="work-step">
+                    <div class="work-number">1</div>
+                    <p class="work-title">Discuss the idea</p>
+                </div>
+                <div class="work-step">
+                    <div class="work-number">2</div>
+                    <p class="work-title">Plan requirements</p>
+                </div>
+                <div class="work-step">
+                    <div class="work-number">3</div>
+                    <p class="work-title">Build</p>
+                </div>
+                <div class="work-step">
+                    <div class="work-number">4</div>
+                    <p class="work-title">Test</p>
+                </div>
+                <div class="work-step">
+                    <div class="work-number">5</div>
+                    <p class="work-title">Deliver</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+                I'm a developer from South Africa 🇿🇦 who enjoys building practical technology.
+                From full mobile apps to video generated entirely in code, I love figuring out how things work
+                and creating solutions that people can actually use.
+            </p>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section" id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-links">
+                <a href="https://github.com/Sesse001" class="btn-primary">GitHub</a>
+                <a href="https://youtube.com/@Sesse001" class="btn-secondary">YouTube</a>
+                <a href="mailto:sesse001@gmail.com" class="btn-secondary">Email</a>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>Senzo — Web & Mobile Development</p>
+            <p>South Africa 🇿🇦</p>
+        </footer>
+    </div>
+
+    <script>
+        console.log('Portfolio loaded');
+    </script>
+</body>
+</html>
